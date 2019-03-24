@@ -2,6 +2,10 @@
 micronaut:
     application:
         name: micronautgorm
+    server:
+        port: 1919
+        cors:
+          enabled: true
 
 ---
 hibernate:
@@ -13,9 +17,8 @@ hibernate:
     use_query_cache: false
     # region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
 dataSource:
-  url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+  url: jdbc:postgresql://localhost/survey
   pooled: true
-  jmxExport: true
-  driverClassName: org.h2.Driver
-  username: sa
-  password: ''       
+  driverClassName: org.postgresql.Driver
+  username: postgres
+  password: ''
