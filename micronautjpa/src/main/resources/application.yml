@@ -2,21 +2,21 @@
 micronaut:
     application:
         name: micronautjpa
-
+    server:
+        port: 1919
+        cors:
+            enabled: true
 ---
 datasources:
   default:
-    url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
-    driverClassName: org.h2.Driver
-    username: sa
-    password: ''    
+    url: jdbc:postgresql://localhost/survey
+    pooled: true
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: ''
 jpa:
   default:
     properties:
       hibernate:
         hbm2ddl:
           auto: update
-
-
----
-datasources.default: {}
